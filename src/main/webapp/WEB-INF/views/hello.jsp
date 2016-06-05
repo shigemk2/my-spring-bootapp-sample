@@ -6,9 +6,12 @@ pageEncoding="utf-8" %>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Hello Page</title>
+    <style>
+        p.msg { border: solid 1px lightgray; padding: 10px; }
+    </style>
 </head>
 <body>
 <h1>Hello!</h1>
-<p>これはサンプルのページです。</p>
+<p class="msg">${val}</p>
 </body>
 </html>
