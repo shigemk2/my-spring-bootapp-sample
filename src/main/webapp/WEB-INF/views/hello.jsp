@@ -12,6 +12,6 @@ pageEncoding="utf-8" %>
 </head>
 <body>
 <h1>Hello!</h1>
-<p class="msg">${val}</p>
+<p class="msg">${datas}</p>
 </body>
 </html>
