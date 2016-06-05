@@ -13,5 +13,13 @@ pageEncoding="utf-8" %>
 <body>
 <h1>Hello!</h1>
 <p class="msg">${datas}</p>
+<hr>
+<form method="post" action="/post">
+    <input type="text" name="name"><br>
+    <input type="text" name="mail"><br>
+    <input type="text" name="tel"><br>
+    <input type="text" name="age"><br>
+    <input type="submit">
+</form>
 </body>
 </html>
