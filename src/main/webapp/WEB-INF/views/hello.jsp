@@ -12,6 +12,10 @@ pageEncoding="utf-8" %>
 </head>
 <body>
 <h1>Hello!</h1>
+<form method="post" action="/find">
+    <input type="text" name="find"><br>
+    <input type="submit">
+</form>
 <p class="msg">${datas}</p>
 <hr>
 <form method="post" action="/post">

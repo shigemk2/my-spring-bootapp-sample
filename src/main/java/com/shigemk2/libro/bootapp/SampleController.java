@@ -35,4 +35,12 @@ public class SampleController {
         model.addAttribute("datas", list);
         return "hello";
     }
+
+    @RequestMapping(value = "/find", method = RequestMethod.POST)
+    public String find(Model model,
+                       @RequestParam("find") int id) {
+        MyData data = repository.getOne(id);
+        model.addAttribute("datas", data);
+        return "hello";
+    }
 }
