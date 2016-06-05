@@ -38,9 +38,9 @@ public class SampleController {
 
     @RequestMapping(value = "/find", method = RequestMethod.POST)
     public String find(Model model,
-                       @RequestParam("find") int id) {
-        MyData data = repository.getOne(id);
-        model.addAttribute("datas", data);
+                       @RequestParam("find") String fstr) {
+        Iterable<MyData> list = repository.findByName(fstr);
+        model.addAttribute("datas", list);
         return "hello";
     }
 }
