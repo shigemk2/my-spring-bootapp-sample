@@ -15,9 +15,9 @@ public class SampleController {
 
     @RequestMapping("/hello")
     public Model hello(Model model) {
-        Data data = new Data("Taro", "taro@yamada", "090-9999-9999");
-        model.addAttribute("data", data);
-        model.addAttribute("msg", "これはThymeleafを使ったサンプルです。");
+        model.addAttribute("flg", true);
+        model.addAttribute("datas", new String[]
+                {"One", "Two", "Three"});
         return model;
     }
 }

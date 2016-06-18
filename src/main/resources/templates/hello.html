@@ -9,6 +9,11 @@
 </head>
 <body>
 <h1>Hello Page</h1>
-<p th:text="#{hello.msg}" />
+<p th:text="${flg} ? 'TRUE is selected.' : 'oh no!'" />
+   <table border="1">
+       <tr th:each="data: ${datas}">
+           <td th:text="${data}" />
+       </tr>
+   </table>
 </body>
 </html>
