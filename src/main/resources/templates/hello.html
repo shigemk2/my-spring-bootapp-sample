@@ -9,13 +9,6 @@
 </head>
 <body>
 <h1>Hello Page</h1>
-<ol th:object="${data}">
-    <li th:text="*{name}" />
-    <li th:text="*{mail}" />
-    <li th:text="*{tel}" />
-</ol>
-<p>
-    <a th:href="@{http://google.com}">link</a>
-</p>
+<p th:text="#{hello.msg}" />
 </body>
 </html>
