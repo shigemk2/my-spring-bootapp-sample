@@ -5,19 +5,35 @@ import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class SampleController {
 
     @Autowired
-    MyDataRepository repository;
+    private MyMongoRepository mongoRepository;
 
     @RequestMapping("/hello")
     public Model hello(Model model) {
-        model.addAttribute("flg", true);
-        model.addAttribute("datas", new String[]
-                {"One", "Two", "Three"});
+        List<MongoData> datas = mongoRepository.findAll();
+        model.addAttribute("msg", "this is MongoDB sample.");
+        model.addAttribute("datas", datas);
+        return model;
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.POST)
+    public Model post(Model model,
+                      @RequestParam("key") String key) {
+        List<MongoData> datas = mongoRepository.findByTitle(key);
+        if (datas == null)
+            datas =new ArrayList<MongoData>();
+        model.addAttribute("msg", "this is MongoDB sample.");
+        model.addAttribute("datas", datas);
         return model;
     }
 }
