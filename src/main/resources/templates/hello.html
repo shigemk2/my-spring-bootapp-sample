@@ -4,16 +4,29 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Hello Page</title>
     <style>
+        table tr th { background-color: #000099; color; white; }
+        table tr td { background-color: #eeeeee; }
         p.msg { border: solid 1px lightgray; padding: 10px; }
+        p.title { margin: 0px 5px; font-weight: bold; }
+        p.memo { margin: 0px 5px; }
     </style>
 </head>
 <body>
 <h1>Hello Page</h1>
-<p th:text="${flg} ? 'TRUE is selected.' : 'oh no!'" />
-   <table border="1">
-       <tr th:each="data: ${datas}">
-           <td th:text="${data}" />
-       </tr>
+<p th:text="${msg}" />
+<form method="post" action="/hello">
+    <input type="text" name="key" />
+    <input type="submit" value="検索" />
+</form>
+<hr />
+<table>
+    <tr><th>MongoDB Data</th></tr>
+    <tr th:each="data: ${datas}">
+        <td>
+            <p class="title" th:text="''「' + ${data.title} + '」''" />
+            <p class="memo" th:text="${data.memo} + '(' + ${data.dateStr} + ')'" />
+        </td>
+    </tr>
    </table>
 </body>
 </html>
