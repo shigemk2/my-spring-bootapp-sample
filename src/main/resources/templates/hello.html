@@ -23,7 +23,7 @@
     <tr><th>MongoDB Data</th></tr>
     <tr th:each="data: ${datas}">
         <td>
-            <p class="title" th:text="''「' + ${data.title} + '」''" />
+            <p class="title" th:text="'「' + ${data.title} + '」'" />
             <p class="memo" th:text="${data.memo} + '(' + ${data.dateStr} + ')'" />
         </td>
     </tr>
